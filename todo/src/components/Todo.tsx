@@ -1,5 +1,21 @@
 import React from "react"
 
-const Todo = () => <li>Todo</li>
+import "./Todo.scss"
+
+export interface TodoProps {
+  title: string
+  content: string
+  completed: boolean
+  dateCreated: Date
+}
+
+const Todo = ({ title, content, completed, dateCreated }: TodoProps) => (
+  <li className={completed ? "completed" : undefined}>
+    <h3>{title}</h3>
+    <p>{content}</p>
+    <div>{dateCreated.toDateString()}</div>
+    <button>Complete</button>
+  </li>
+)
 
 export default Todo

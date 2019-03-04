@@ -1,18 +1,14 @@
 import { combineReducers } from "redux"
+import { TodoProps } from "../components/Todo"
 
 const ADD_TODO = "ADD_TODO"
 
-interface Todo {
-  title: string
-  completed: boolean
-}
-
 interface TodoAction {
   type: typeof ADD_TODO
-  payload: Todo
+  payload: TodoProps
 }
 
-const todos = (state: Array<Todo> = [], action: TodoAction) => {
+const todos = (state: Array<TodoProps> = [], action: TodoAction) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload]

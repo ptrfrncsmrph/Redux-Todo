@@ -1,5 +1,26 @@
 import React from "react"
+import { connect } from "react-redux"
+import Todo, { TodoProps } from "./Todo"
 
-const Todos = () => <h1>Todos</h1>
+import "./Todos.scss"
 
-export default Todos
+interface TodosProps {
+  todos: Array<TodoProps>
+}
+
+const Todos = ({ todos }: TodosProps) =>
+  todos.length ? (
+    <ul>
+      {todos.map((todo, ix) => (
+        <Todo key={ix} {...todo} />
+      ))}
+    </ul>
+  ) : (
+    <span>Nothing to show</span>
+  )
+
+const mapStateToProps = ({ todos }: TodosProps) => ({
+  todos
+})
+
+export default connect(mapStateToProps)(Todos)
