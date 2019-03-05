@@ -11,6 +11,7 @@
     "@types/uuid": "^3.4.4",
     "date-fns": "^2.0.0-alpha.27",
     "fp-ts": "^1.14.3",
+    "monocle-ts": "^1.6.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",

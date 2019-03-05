@@ -11,8 +11,8 @@ interface TodosProps {
 const Todos = ({ todos }: TodosProps) =>
   todos.length ? (
     <ul>
-      {todos.map((todo, ix) => (
-        <Todo key={ix} {...todo} />
+      {todos.map(todo => (
+        <Todo key={todo.id} {...todo} />
       ))}
     </ul>
   ) : (
