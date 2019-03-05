@@ -4,7 +4,7 @@ import "./index.css"
 import App from "./App"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
-import { uuidv4 } from "node-uuid"
+import uuidv4 from "uuid/v4"
 
 import { TodoProps } from "./components/Todo"
 import reducer from "./reducer"
@@ -30,7 +30,7 @@ const initialState = {
   ].map(t => ({ ...t, id: uuidv4() }))
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, initialState)
 
 ReactDOM.render(
   <Provider store={store}>
