@@ -1,5 +1,7 @@
-import React from "react"
+import React, { MouseEvent, MouseEventHandler } from "react"
+import { connect } from "react-redux"
 
+import { TOGGLE_TODO } from "../reducer"
 import "./Todo.scss"
 
 export interface TodoProps {
@@ -7,15 +9,37 @@ export interface TodoProps {
   content: string
   completed: boolean
   dateCreated: Date
+  id: string
 }
 
-const Todo = ({ title, content, completed, dateCreated }: TodoProps) => (
+interface ConnectedTodoProps extends TodoProps {
+  handleComplete: (id: string) => MouseEventHandler
+}
+
+const Todo = ({
+  handleComplete,
+  title,
+  id,
+  content,
+  completed,
+  dateCreated
+}: ConnectedTodoProps) => (
   <li className={completed ? "completed" : undefined}>
     <h3>{title}</h3>
     <p>{content}</p>
     <div>{dateCreated.toDateString()}</div>
-    <button>Complete</button>
+    <button onClick={handleComplete(id)}>
+      {completed ? "Incomplete" : "Complete"}
+    </button>
   </li>
 )
 
-export default Todo
+export default connect(
+  null,
+  {
+    handleComplete: (id: string) => (_event: MouseEvent) => ({
+      type: TOGGLE_TODO,
+      id
+    })
+  }
+)(Todo)

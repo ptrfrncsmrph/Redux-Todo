@@ -1,7 +1,13 @@
 li {
   text-align: left;
   &.completed {
-    opacity: 0.2;
+    background: transparentize(whitesmoke, 0.8);
+    > * {
+      opacity: 0.2;
+    }
+    button {
+      opacity: 1;
+    }
   }
   background: whitesmoke;
   padding: 1rem;

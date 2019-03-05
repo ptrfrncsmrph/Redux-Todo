@@ -4,6 +4,7 @@ import "./index.css"
 import App from "./App"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
+import { uuidv4 } from "node-uuid"
 
 import { TodoProps } from "./components/Todo"
 import reducer from "./reducer"
@@ -12,7 +13,7 @@ export interface State {
   todos: Array<TodoProps>
 }
 
-const store = createStore(reducer, {
+const initialState = {
   todos: [
     {
       title: "Mow the lawn",
@@ -26,8 +27,10 @@ const store = createStore(reducer, {
       completed: true,
       dateCreated: new Date("1-2-2016")
     }
-  ]
-})
+  ].map(t => ({ ...t, id: uuidv4() }))
+}
+
+const store = createStore(reducer)
 
 ReactDOM.render(
   <Provider store={store}>
