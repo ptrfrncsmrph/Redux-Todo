@@ -1,5 +1,6 @@
-import React, { MouseEvent, MouseEventHandler } from "react"
+import React from "react"
 import { connect } from "react-redux"
+import formatRelative from "date-fns/formatRelative"
 
 import { TOGGLE_TODO, ToggleTodo } from "../reducer"
 import "./Todo.scss"
@@ -10,11 +11,6 @@ export interface TodoProps {
   completed: boolean
   dateCreated: Date
   id: string
-}
-
-interface TodoAction {
-  id: string
-  type: string
 }
 
 interface ConnectedTodoProps extends TodoProps {
@@ -32,7 +28,7 @@ const Todo = ({
   <li className={completed ? "completed" : undefined}>
     <h3>{title}</h3>
     <p>{content}</p>
-    <div>{dateCreated.toDateString()}</div>
+    <div>{formatRelative(dateCreated, new Date())}</div>
     <button onClick={() => handleComplete(id)}>
       {completed ? "Mark as uncompleted" : "Mark as completed"}
     </button>

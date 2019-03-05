@@ -19,13 +19,13 @@ const initialState = {
       title: "Mow the lawn",
       content: "It really needs mowing",
       completed: false,
-      dateCreated: new Date("10-12-2011")
+      dateCreated: new Date("2019-03-01T13:45:00+0000")
     },
     {
       title: "Do the dishes",
       content: "Pleeeaase",
       completed: true,
-      dateCreated: new Date("1-2-2016")
+      dateCreated: new Date("2019-03-02T18:45:30+0000")
     }
   ].map(t => ({ ...t, id: uuidv4() }))
 }

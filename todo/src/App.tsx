@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import Todos from "./components/Todos"
 import TodoForm from "./components/TodoForm"
 
@@ -11,4 +11,4 @@ const App = () => (
   </main>
 )
 
-export default App
+export default memo(App)

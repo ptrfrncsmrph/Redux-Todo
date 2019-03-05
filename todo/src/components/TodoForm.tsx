@@ -1,5 +1,5 @@
-import React from "react"
+import React, { memo } from "react"
 
 const TodoForm = () => <h1>TodoForm</h1>
 
-export default TodoForm
+export default memo(TodoForm)
