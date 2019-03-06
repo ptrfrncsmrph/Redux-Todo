@@ -1,0 +1,25 @@
+li {
+  text-align: left;
+  &.completed {
+    background: transparentize(whitesmoke, 0.8);
+    > * {
+      opacity: 0.2;
+    }
+    button {
+      opacity: 1;
+    }
+  }
+  background: whitesmoke;
+  padding: 1rem;
+  h3 {
+    margin: 0;
+  }
+
+  button {
+    background: white;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+  }
+}
